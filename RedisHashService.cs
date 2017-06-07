@@ -38,21 +38,6 @@ namespace SignalR.Utils.Redis
             return task.Result;
         }
 
-        /// <summary>
-        /// 取得總長度 未讀+已讀
-        /// </summary>
-        /// <param name="dbIndex"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static long HashLenthForBuild(string key)
-        {
-            var conn1 = GetDatabase(8);
-            var length1 = conn1.HashLength(key);
-            var conn2 = GetDatabase(9);
-            var length2 = conn2.HashLength(key);
-            return length1 + length2 + 1;
-        }
-
 #region 檢查是否存在
         /// <summary>
         /// 檢查是否存在 - 單筆
